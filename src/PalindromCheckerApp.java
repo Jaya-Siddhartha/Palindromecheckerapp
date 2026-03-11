@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.*;
 
 public class PalindromCheckerApp {
@@ -42,3 +43,7 @@ public class PalindromCheckerApp {
         sc.close();
     }
 }
+=======
+public class PalindromCheckerApp {
+}
+>>>>>>> 6ca12f6da22575f174b4097fa1989a1bc014baba
