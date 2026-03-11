@@ -1,33 +1,33 @@
-import java.util.Stack;
+import java.util.Scanner;
 
 public class PalindromCheckerApp {
 
-    // UC5: Stack-Based Palindrome Checker
-    public static void uc5Stack() {
-        String word = "noon"; // hardcoded input
-        Stack<Character> stack = new Stack<>();
+    // Recursive function
+    static boolean isPalindrome(String str, int start, int end) {
 
-        // Push all characters into stack
-        for (int i = 0; i < word.length(); i++) {
-            stack.push(word.charAt(i));
-        }
+        // Base condition
+        if (start >= end)
+            return true;
 
-        // Pop characters to form reversed string
-        String reversed = "";
-        while (!stack.isEmpty()) {
-            reversed += stack.pop();
-        }
+        // If characters don't match
+        if (str.charAt(start) != str.charAt(end))
+            return false;
 
-        // Compare original and reversed
-        boolean isPalindrome = word.equals(reversed);
-
-        // Print result
-        System.out.println("Input: " + word);
-        System.out.println("Is palindrome? : " + isPalindrome);
+        // Recursive call
+        return isPalindrome(str, start + 1, end - 1);
     }
 
-    // Main method
     public static void main(String[] args) {
-        uc5Stack();
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        if (isPalindrome(str, 0, str.length() - 1))
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
+
+        sc.close();
     }
 }
